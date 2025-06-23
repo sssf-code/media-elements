@@ -125,6 +125,7 @@ class YoutubeVideoElement extends (globalThis.HTMLElement ?? class {
     }
     const YT = await loadScript(API_URL, API_GLOBAL, API_GLOBAL_READY);
     this.api = new YT.Player(iframe, {
+      host: "https://www.youtube-nocookie.com",
       events: {
         onReady: () => {
           this.#readyState = 1;
