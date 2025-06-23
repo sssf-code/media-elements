@@ -1,6 +1,6 @@
 // https://developers.google.com/youtube/iframe_api_reference
 
-const EMBED_BASE = 'https://www.youtube.com/embed';
+const EMBED_BASE = 'https://www.youtube-nocookie.com/embed';
 const API_URL = 'https://www.youtube.com/iframe_api';
 const API_GLOBAL = 'YT';
 const API_GLOBAL_READY = 'onYouTubeIframeAPIReady';
