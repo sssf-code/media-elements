@@ -5,6 +5,7 @@ const API_GLOBAL = "YT";
 const API_GLOBAL_READY = "onYouTubeIframeAPIReady";
 const MATCH_SRC = /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/|live\/))((\w|-){11})/;
 function getTemplateHTML(attrs, props = {}) {
+  var _a;
   const iframeAttrs = {
     src: serializeIframeUrl(attrs, props),
     frameborder: 0,
@@ -12,6 +13,9 @@ function getTemplateHTML(attrs, props = {}) {
     height: "100%",
     allow: "accelerometer; fullscreen; autoplay; encrypted-media; gyroscope; picture-in-picture"
   };
+  if ((_a = attrs.src) == null ? void 0 : _a.includes("-nocookie")) {
+    iframeAttrs.sandbox = "allow-scripts allow-same-origin";
+  }
   if (props.config) {
     iframeAttrs["data-config"] = JSON.stringify(props.config);
   }
