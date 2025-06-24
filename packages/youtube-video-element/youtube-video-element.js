@@ -17,6 +17,10 @@ function getTemplateHTML(attrs, props = {}) {
     allow: 'accelerometer; fullscreen; autoplay; encrypted-media; gyroscope; picture-in-picture',
   };
 
+  if (attrs.src?.includes('-nocookie')) {
+    iframeAttrs.sandbox = 'allow-scripts allow-same-origin';
+  }
+
   if (props.config) {
     // Serialize YouTube config on iframe so it can be quickly accessed on first load.
     // Required for React SSR because the custom element is initialized long before React client render.
